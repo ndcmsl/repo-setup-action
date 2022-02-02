@@ -1,0 +1,27 @@
+{
+  "name": "repo-setup-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "ncc build -o lib src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndcmsl/repo-setup-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndcmsl/repo-setup-action/issues"
+  },
+  "homepage": "https://github.com/ndcmsl/repo-setup-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.1",
+    "typescript": "^4.5.5"
+  }
+}

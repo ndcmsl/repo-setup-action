@@ -5,6 +5,7 @@ const main = async () => {
   const owner = core.getInput('owner', { required: true });
   const repo = core.getInput('repo', { required: true }).split('/')[1];
   const token = core.getInput('token', { required: true});
+  const topic = core.getInput('topic');
   const octokit = github.getOctokit(token);
   const protectionConfig = {
     owner,
@@ -22,6 +23,11 @@ const main = async () => {
 
   octokit.rest.repos.updateBranchProtection({ ...protectionConfig, branch: 'main' });
   octokit.rest.repos.updateBranchProtection({ ...protectionConfig, branch: 'dev' });
+  octokit.rest.repos.replaceAllTopics({
+    owner,
+    repo,
+    names: [topic]
+  });
   octokit.rest.teams.addOrUpdateRepoPermissionsInOrg({
     owner,
     repo,
